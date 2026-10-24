@@ -1,0 +1,387 @@
+/* ============================================
+   MODERN ORDER TRACKING PAGE STYLES
+   ============================================ */
+.tracking-page {
+  padding-top: 6.5rem;
+  padding-bottom: 6rem;
+  min-height: 90vh;
+}
+
+.tracking-header {
+  padding: 2.5rem 0 1.5rem;
+  text-align: center;
+}
+
+.tracking-search-bar {
+  max-width: 500px;
+  margin: 1.5rem auto 0;
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 9999px;
+  padding: 4px 6px 4px 18px;
+  box-shadow: var(--shadow-md);
+}
+
+.tracking-search-bar input {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  flex: 1;
+  padding: 8px 10px;
+}
+
+.tracking-container-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.tracking-main-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.tracking-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.order-id-badge {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: var(--color-primary);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.order-status-heading {
+  font-size: 1.45rem;
+  color: var(--text-primary);
+}
+
+.btn-icon-action {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-icon-action:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.eta-banner {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(6, 182, 212, 0.08) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.eta-icon {
+  font-size: 2rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.eta-banner strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.eta-banner p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* PROGRESS STEPS */
+.progress-steps-wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 3.5rem;
+}
+
+.progress-steps-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 26px;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background: var(--border-glass);
+  z-index: 1;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.step-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.step-item.completed .step-circle {
+  border-color: #10B981;
+  background: rgba(16, 185, 129, 0.12);
+  color: #10B981;
+}
+
+.step-item.current .step-circle {
+  border-color: var(--color-primary);
+  background: var(--gradient-primary);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  transform: scale(1.15);
+}
+
+.step-info strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.step-info span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* RIDER CARD */
+.rider-card {
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-glass);
+  border-radius: 18px;
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.rider-avatar {
+  font-size: 2.2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rider-details {
+  flex: 1;
+}
+
+.rider-details h4 {
+  font-size: 1.05rem;
+  margin-bottom: 2px;
+  color: var(--text-primary);
+}
+
+.rider-details span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.rider-details p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.rider-call-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+}
+
+/* RECEIPT */
+.tracking-receipt-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 22px;
+  padding: 2rem;
+  position: sticky;
+  top: 6rem;
+  box-shadow: var(--shadow-card);
+}
+
+.receipt-title {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.receipt-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.receipt-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  gap: 1rem;
+}
+
+.receipt-meta-row span {
+  color: var(--text-muted);
+}
+
+.receipt-meta-row strong {
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.receipt-address {
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  text-align: right;
+  margin: 0;
+  max-width: 200px;
+}
+
+.payment-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+.payment-pill.paid {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10B981;
+}
+
+.payment-pill.pending {
+  background: rgba(245, 158, 11, 0.12);
+  color: #D97706;
+}
+
+.receipt-items-list {
+  border-top: 1px solid var(--border-glass);
+  padding: 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.receipt-items-list h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.receipt-item-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.receipt-total-block {
+  border-top: 1px solid var(--border-glass);
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+}
+
+.receipt-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+.receipt-total-row strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.receipt-footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 968px) {
+  .tracking-container-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-steps-wrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .progress-steps-wrapper::before {
+    top: 0;
+    bottom: 0;
+    left: 26px;
+    width: 2px;
+    height: auto;
+  }
+
+  .step-item {
+    flex-direction: row;
+    gap: 1.25rem;
+    text-align: left;
+  }
+}

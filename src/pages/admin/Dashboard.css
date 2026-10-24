@@ -1,0 +1,432 @@
+/* ============================================
+   MODERN SAAS DASHBOARD STYLES
+   ============================================ */
+.saas-dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.saas-dash-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.saas-title {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.saas-sub {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* 4 METRIC CARDS */
+.saas-metric-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.saas-metric-card {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 20px;
+}
+
+.metric-icon-bubble {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.card-indigo .metric-icon-bubble {
+  background: rgba(79, 70, 229, 0.12);
+  color: var(--color-primary);
+}
+
+.card-teal .metric-icon-bubble {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--color-accent-cyan);
+}
+
+.card-orange .metric-icon-bubble {
+  background: rgba(249, 115, 22, 0.12);
+  color: var(--color-cta);
+}
+
+.card-purple .metric-icon-bubble {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--color-accent-purple);
+}
+
+.metric-card-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.metric-val {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.metric-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.metric-trend.up {
+  color: #16A34A;
+}
+
+.metric-trend.active-orders {
+  color: #D97706;
+}
+
+/* ROW 2: CHART & TOP PRODUCTS */
+.saas-dash-row-2 {
+  display: grid;
+  grid-template-columns: 1.9fr 1.1fr;
+  gap: 1.75rem;
+}
+
+.saas-chart-card,
+.saas-top-products-card,
+.saas-table-card,
+.saas-quick-actions-card {
+  padding: 1.75rem;
+  border-radius: 20px;
+}
+
+.saas-chart-header,
+.top-prods-header,
+.saas-table-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.saas-chart-header h3,
+.top-prods-header h3,
+.saas-table-head h3,
+.saas-quick-actions-card h3 {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.saas-chart-header p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.saas-chart-period-pills {
+  display: flex;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-glass);
+  border-radius: 9999px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.saas-period-btn {
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.saas-period-btn.active {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+
+/* SVG Chart */
+.saas-svg-chart-container {
+  position: relative;
+  width: 100%;
+}
+
+.saas-svg-chart {
+  width: 100%;
+  height: 220px;
+  overflow: visible;
+}
+
+.chart-circle-point {
+  fill: #FFFFFF;
+  stroke: var(--color-primary);
+  stroke-width: 3;
+  cursor: pointer;
+  transition: r 0.2s ease;
+}
+
+.chart-circle-point:hover {
+  r: 8;
+  fill: var(--color-primary);
+  stroke: #FFFFFF;
+}
+
+.saas-chart-tooltip {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  padding: 6px 14px;
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.saas-chart-tooltip strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+}
+
+.saas-chart-tooltip span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.saas-chart-labels-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1.5rem 0;
+}
+
+.saas-axis-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* TOP PRODUCTS */
+.top-prods-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.top-prod-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.top-prod-thumb {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.top-prod-info {
+  flex: 1;
+}
+
+.top-prod-title-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.top-prod-title-row strong {
+  color: var(--text-primary);
+}
+
+.top-prod-title-row span {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.top-prod-bar-track {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-surface-2);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.top-prod-bar-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 9999px;
+}
+
+/* ROW 3: TABLE & QUICK ACTIONS */
+.saas-dash-row-3 {
+  display: grid;
+  grid-template-columns: 1.9fr 1.1fr;
+  gap: 1.75rem;
+}
+
+.saas-table-wrapper {
+  overflow-x: auto;
+}
+
+.saas-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.saas-table th {
+  padding: 10px 14px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.saas-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-glass);
+  vertical-align: middle;
+}
+
+.order-id-txt {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.amt-txt {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.saas-status-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+.saas-status-pill.completed,
+.saas-status-pill.delivered {
+  background: rgba(34, 197, 94, 0.12);
+  color: #16A34A;
+}
+
+.saas-status-pill.preparing {
+  background: rgba(245, 158, 11, 0.12);
+  color: #D97706;
+}
+
+.saas-status-pill.confirmed {
+  background: rgba(59, 130, 246, 0.12);
+  color: #2563EB;
+}
+
+.saas-btn-view {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(99, 102, 241, 0.08);
+}
+
+/* QUICK ACTIONS GRID */
+.quick-actions-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.quick-action-tile {
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.quick-action-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+}
+
+.tile-ico-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.tile-ico-wrap.blue { background: rgba(59, 130, 246, 0.12); color: #3B82F6; }
+.tile-ico-wrap.purple { background: rgba(139, 92, 246, 0.12); color: #8B5CF6; }
+.tile-ico-wrap.cyan { background: rgba(6, 182, 212, 0.12); color: #06B6D4; }
+.tile-ico-wrap.green { background: rgba(34, 197, 94, 0.12); color: #22C55E; }
+
+.quick-action-tile span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .saas-metric-cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .saas-dash-row-2,
+  .saas-dash-row-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .saas-metric-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-actions-buttons-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,228 @@
+/* ============================================
+   MODERN MENU PAGE STYLES
+   ============================================ */
+.modern-menu-page {
+  padding-top: 6rem;
+  padding-bottom: 7rem;
+  min-height: 100vh;
+}
+
+.menu-hero-header {
+  padding: 3rem 0 2rem;
+  text-align: center;
+}
+
+.menu-content-wrap {
+  margin-top: 1rem;
+}
+
+/* CONTROLS BAR */
+.menu-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  border-radius: 20px;
+}
+
+.menu-search-input-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-glass);
+  border-radius: 9999px;
+  padding: 8px 18px;
+  flex: 1;
+  min-width: 280px;
+  max-width: 500px;
+  transition: all 0.25s ease;
+}
+
+.menu-search-input-box:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.search-ico {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+
+.search-field {
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  width: 100%;
+}
+
+.search-field::placeholder {
+  color: var(--text-muted);
+}
+
+.menu-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.bestseller-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.bestseller-checkbox-label input {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+}
+
+.sort-dropdown-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-glass);
+  border-radius: 9999px;
+  padding: 6px 14px;
+}
+
+.sort-ico {
+  color: var(--color-primary);
+}
+
+.sort-dropdown {
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sort-dropdown option {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* CATEGORY RAIL */
+.menu-category-scroll-rail {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  margin-bottom: 2.5rem;
+  scrollbar-width: none;
+}
+
+.cat-rail-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 9999px;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.cat-rail-pill:hover,
+.cat-rail-pill.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+  transform: translateY(-2px);
+}
+
+.cat-pill-icon {
+  font-size: 1.1rem;
+}
+
+/* EMPTY RESULTS */
+.menu-empty-results {
+  text-align: center;
+  padding: 5rem 2rem;
+  border-radius: 24px;
+}
+
+.empty-ico {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.menu-empty-results h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+/* FLOATING CART BAR */
+.floating-cart-bar {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.floating-cart-container {
+  max-width: 680px;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-xl), 0 0 25px rgba(99, 102, 241, 0.25);
+}
+
+.floating-cart-info {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.cart-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--color-primary);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.cart-total-text {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.cart-total-text strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+.floating-checkout-btn {
+  padding: 8px 22px;
+}

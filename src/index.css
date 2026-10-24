@@ -1,0 +1,394 @@
+/* =======================================================
+   RATHORY CHAI WALE - MODERN LUXURY DESIGN SYSTEM
+   Inspired by Apple, Linear, Framer & Stripe
+   ======================================================= */
+
+/* ---- Core Font Imports ---- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+/* =======================================================
+   DESIGN TOKENS - LIGHT & DARK MODES
+   ======================================================= */
+:root,
+[data-theme="light"],
+html.light {
+  /* Surface & Backgrounds */
+  --bg-app: #F8FAFC;
+  --bg-page: #F8FAFC;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.98);
+  --bg-card-solid: #FFFFFF;
+  --bg-surface: #FFFFFF;
+  --bg-surface-2: #F1F5F9;
+  --bg-surface-3: #E2E8F0;
+  --bg-surface-hover: rgba(241, 245, 249, 0.9);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --bg-primary: #F8FAFC;
+  --border-color: rgba(226, 232, 240, 0.8);
+  --border-glass: rgba(226, 232, 240, 0.8);
+  --border-glass-hover: rgba(99, 102, 241, 0.35);
+  --accent-primary: #4F46E5;
+  --accent-secondary: #8B5CF6;
+
+  /* Typography */
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --text-white: #FFFFFF;
+
+  /* Primary Brand Gradients (Blue -> Purple -> Cyan) */
+  --color-primary: #4F46E5;
+  --color-primary-light: #6366F1;
+  --color-primary-dark: #3730A3;
+  --color-accent-purple: #8B5CF6;
+  --color-accent-cyan: #06B6D4;
+  --color-accent-blue: #3B82F6;
+
+  /* Vibrant Orange CTA */
+  --color-cta: #F97316;
+  --color-cta-hover: #EA580C;
+  --color-cta-glow: rgba(249, 115, 22, 0.35);
+  --gradient-cta: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+
+  /* Premium Gradients */
+  --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #06B6D4 100%);
+  --gradient-purple-blue: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.12) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 70%);
+  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.7) 100%);
+
+  /* Shadows - Soft Neumorphic & Diffuse */
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  --shadow-lg: 0 16px 36px -6px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+  --shadow-xl: 0 24px 48px -12px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 10px 30px -8px rgba(99, 102, 241, 0.25);
+  --shadow-card: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+
+  /* Navbar */
+  --navbar-bg: rgba(255, 255, 255, 0.82);
+  --navbar-border: rgba(226, 232, 240, 0.7);
+
+  /* Admin */
+  --admin-sidebar-bg: #FFFFFF;
+  --admin-sidebar-border: #E2E8F0;
+  --admin-topbar-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* =======================================================
+   DARK MODE - DEEP NAVY (#0B1220) + GLOWING ACCENTS
+   ======================================================= */
+[data-theme="dark"],
+html.dark {
+  /* Surface & Backgrounds */
+  --bg-app: #0B1220;
+  --bg-page: #0B1220;
+  --bg-card: rgba(17, 24, 39, 0.75);
+  --bg-card-hover: rgba(24, 33, 53, 0.9);
+  --bg-card-solid: #111A2E;
+  --bg-surface: #111A2E;
+  --bg-surface-2: #182238;
+  --bg-surface-3: #1F2D4A;
+  --bg-surface-hover: rgba(31, 45, 74, 0.8);
+  --bg-glass: rgba(17, 24, 39, 0.65);
+  --bg-glass-strong: rgba(15, 23, 42, 0.85);
+  --bg-primary: #0B1220;
+  --border-color: rgba(99, 102, 241, 0.18);
+  --border-glass: rgba(99, 102, 241, 0.18);
+  --border-glass-hover: rgba(99, 102, 241, 0.45);
+  --accent-primary: #6366F1;
+  --accent-secondary: #A78BFA;
+
+  /* Typography */
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --text-white: #FFFFFF;
+
+  /* Primary Brand Gradients (Indigo -> Purple -> Cyan) */
+  --color-primary: #6366F1;
+  --color-primary-light: #818CF8;
+  --color-primary-dark: #4F46E5;
+  --color-accent-purple: #A78BFA;
+  --color-accent-cyan: #22D3EE;
+  --color-accent-blue: #60A5FA;
+
+  /* Vibrant Orange CTA */
+  --color-cta: #F97316;
+  --color-cta-hover: #FB923C;
+  --color-cta-glow: rgba(249, 115, 22, 0.45);
+  --gradient-cta: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+
+  /* Premium Gradients */
+  --gradient-primary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #06B6D4 100%);
+  --gradient-purple-blue: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.22) 0%, rgba(6, 182, 212, 0.08) 50%, transparent 70%);
+  --gradient-card: linear-gradient(180deg, rgba(24, 33, 53, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+
+  /* Shadows - Deep Luminous */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 36px -6px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 24px 60px -12px rgba(0, 0, 0, 0.75);
+  --shadow-glow: 0 10px 30px -8px rgba(99, 102, 241, 0.4);
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.5);
+
+  /* Navbar */
+  --navbar-bg: rgba(11, 18, 32, 0.85);
+  --navbar-border: rgba(99, 102, 241, 0.18);
+
+  /* Admin */
+  --admin-sidebar-bg: #0D1527;
+  --admin-sidebar-border: rgba(99, 102, 241, 0.15);
+  --admin-topbar-bg: rgba(11, 18, 32, 0.9);
+}
+
+/* =======================================================
+   GLOBAL RESET & TYPOGRAPHY
+   ======================================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+input, textarea, select {
+  font-family: inherit;
+  outline: none;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+/* Selection Highlight */
+::selection {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface-3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* =======================================================
+   UTILITY CLASSES & GRID
+   ======================================================= */
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-primary);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 6px 16px;
+  border-radius: 30px;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* =======================================================
+   BUTTONS - APPLE & LINEAR AESTHETICS
+   ======================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.2px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+
+/* CTA Gradient Button */
+.btn-primary,
+.btn-cta {
+  background: var(--gradient-cta);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px -2px var(--color-cta-glow);
+}
+
+.btn-primary:hover,
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -2px var(--color-cta-glow);
+  filter: brightness(1.05);
+}
+
+/* Purple/Blue Gradient Button */
+.btn-gradient {
+  background: var(--gradient-primary);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px -2px rgba(99, 102, 241, 0.35);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -2px rgba(99, 102, 241, 0.5);
+}
+
+/* Soft Glass Button */
+.btn-outline,
+.btn-glass {
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.btn-outline:hover,
+.btn-glass:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 0.85rem;
+}
+
+.btn-lg {
+  padding: 16px 36px;
+  font-size: 1.05rem;
+}
+
+/* =======================================================
+   CARDS & GLASSMORPHISM
+   ======================================================= */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-card);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--border-glass-hover);
+}
+
+/* Z-Index Hierarchy */
+:root {
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-fixed: 200;
+  --z-modal: 500;
+  --z-toast: 1000;
+}
