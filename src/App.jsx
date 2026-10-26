@@ -1,12 +1,16 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { useApp } from './context/AppContext';
 import Navbar from './components/Navbar';
+import BottomNav from './components/BottomNav';
 import Footer from './components/Footer';
 import AdminLayout from './components/admin/AdminLayout';
 import ToastContainer from './components/ToastContainer';
+import InstallPwaPrompt from './components/InstallPwaPrompt';
 import LoadingScreen from './components/LoadingScreen';
 import ScrollToTop from './components/ScrollToTop';
+import PageTransition from './components/PageTransition';
 import './App.css';
 
 // Lazy load pages
@@ -32,6 +36,41 @@ const AdminInventory = lazy(() => import('./pages/admin/Inventory'));
 const AdminGallery = lazy(() => import('./pages/admin/GalleryMgmt'));
 const AdminSettings = lazy(() => import('./pages/admin/Settings'));
 
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {/* Customer Routes — wrapped in PageTransition */}
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+        <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
+        <Route path="/menu" element={<PageTransition><Menu /></PageTransition>} />
+        <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/cart" element={<PageTransition><Cart /></PageTransition>} />
+        <Route path="/checkout" element={<PageTransition><Checkout /></PageTransition>} />
+        <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
+        <Route path="/profile" element={<PageTransition><Profile /></PageTransition>} />
+        <Route path="/track-order" element={<PageTransition><OrderTracking /></PageTransition>} />
+
+        {/* Admin Routes — no page transition (handled by admin layout) */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="products" element={<AdminProducts />} />
+          <Route path="orders" element={<AdminOrders />} />
+          <Route path="customers" element={<AdminCustomers />} />
+          <Route path="analytics" element={<AdminAnalytics />} />
+          <Route path="inventory" element={<AdminInventory />} />
+          <Route path="gallery" element={<AdminGallery />} />
+          <Route path="settings" element={<AdminSettings />} />
+        </Route>
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 function App() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
@@ -40,39 +79,20 @@ function App() {
     <div className="app">
       <ScrollToTop />
       <ToastContainer />
+      <InstallPwaPrompt />
 
+      {/* Desktop/Tablet: Top Navbar | Mobile: Hidden (replaced by BottomNav) */}
       {!isAdminRoute && <Navbar />}
 
       <Suspense fallback={<LoadingScreen />}>
-        <Routes>
-          {/* Customer Routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/track-order" element={<OrderTracking />} />
-
-          {/* Admin Routes */}
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="products" element={<AdminProducts />} />
-            <Route path="orders" element={<AdminOrders />} />
-            <Route path="customers" element={<AdminCustomers />} />
-            <Route path="analytics" element={<AdminAnalytics />} />
-            <Route path="inventory" element={<AdminInventory />} />
-            <Route path="gallery" element={<AdminGallery />} />
-            <Route path="settings" element={<AdminSettings />} />
-          </Route>
-        </Routes>
+        <AnimatedRoutes />
       </Suspense>
 
+      {/* Footer: visible on desktop, reduced on mobile */}
       {!isAdminRoute && <Footer />}
+
+      {/* Mobile: Floating bottom navigation bar */}
+      {!isAdminRoute && <BottomNav />}
     </div>
   );
 }

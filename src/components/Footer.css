@@ -204,6 +204,10 @@
 
 /* RESPONSIVE */
 @media (max-width: 968px) {
+  .modern-footer {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 16px));
+  }
+
   .footer-top-grid {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
@@ -220,3 +224,4 @@
     text-align: center;
   }
 }
+

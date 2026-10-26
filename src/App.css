@@ -1,5 +1,130 @@
+/* ============================================
+   APP LAYOUT — MOBILE-FIRST PWA SHELL
+   ============================================ */
 .app {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Page transition wrapper */
+.page-transition-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  will-change: opacity, transform;
+}
+
+/* ============================================
+   SAFE AREA INSETS
+   iPhone Dynamic Island, Notch, Android Nav
+   ============================================ */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .app {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+}
+
+/* ============================================
+   MOBILE APP MODE
+   ============================================ */
+@media (max-width: 968px) {
+  /* Add bottom padding to prevent content hidden behind bottom nav */
+  .app {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 8px));
+  }
+
+  /* Reduce footer bottom padding on mobile (bottom nav takes over) */
+  .modern-footer {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 8px));
+  }
+
+  /* Hide scrollbar on mobile for cleaner app feel */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Prevent rubber-banding to feel more app-like */
+  html {
+    overscroll-behavior-y: none;
+  }
+}
+
+/* ============================================
+   STANDALONE PWA MODE
+   ============================================ */
+@media (display-mode: standalone) {
+  /* When installed as PWA */
+  .app {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+
+  /* Disable text selection in app mode for native feel */
+  body {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Re-enable for input fields */
+  input, textarea, [contenteditable] {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION — ACCESSIBILITY
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-wrapper {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   SKELETON SHIMMER UTILITY
+   ============================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-surface-2) 25%,
+    var(--bg-surface-3) 50%,
+    var(--bg-surface-2) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+@keyframes skeletonShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ============================================
+   TOUCH UTILITIES
+   ============================================ */
+.touch-feedback {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.touch-feedback:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
 }

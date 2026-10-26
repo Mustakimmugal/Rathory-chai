@@ -1,18 +1,40 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { FiPlus, FiHeart, FiStar, FiCheck } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiPlus, FiMinus, FiHeart, FiStar } from 'react-icons/fi';
 import './ProductCard.css';
 
 export default function ProductCard({ product }) {
   const { state, dispatch, addToast } = useApp();
 
   const isFavorite = state.favorites.includes(product.id);
-  const isInCart = state.cart.some((item) => item.id === product.id);
+  const cartItem = state.cart.find((item) => item.id === product.id);
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
     dispatch({ type: 'ADD_TO_CART', payload: product });
     addToast(`Added ${product.name} to cart ☕`, 'success');
+  };
+
+  const handleIncrement = (e) => {
+    e.stopPropagation();
+    dispatch({
+      type: 'UPDATE_QTY',
+      payload: { id: product.id, qty: (cartItem?.qty || 0) + 1 },
+    });
+  };
+
+  const handleDecrement = (e) => {
+    e.stopPropagation();
+    if (cartItem?.qty <= 1) {
+      dispatch({ type: 'REMOVE_FROM_CART', payload: product.id });
+      addToast(`Removed ${product.name} from cart`, 'info');
+    } else {
+      dispatch({
+        type: 'UPDATE_QTY',
+        payload: { id: product.id, qty: cartItem.qty - 1 },
+      });
+    }
   };
 
   const handleToggleFavorite = (e) => {
@@ -29,7 +51,12 @@ export default function ProductCard({ product }) {
     : product.price;
 
   return (
-    <div className="modern-product-card glass-card">
+    <motion.div
+      className="modern-product-card glass-card"
+      whileHover={{ y: -4 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.2 }}
+    >
       {/* CARD IMAGE CONTAINER */}
       <div className="card-media-wrapper">
         <img
@@ -73,7 +100,7 @@ export default function ProductCard({ product }) {
 
         <p className="card-product-desc">{product.description}</p>
 
-        {/* FOOTER: PRICE & QUICK ADD */}
+        {/* FOOTER: PRICE & QUICK ADD / STEPPER */}
         <div className="card-bottom-row">
           <div className="card-price-stack">
             <span className="card-current-price">₹{discountedPrice}</span>
@@ -82,16 +109,52 @@ export default function ProductCard({ product }) {
             )}
           </div>
 
-          <button
-            onClick={handleAddToCart}
-            className={`card-quick-add-btn ${isInCart ? 'added' : ''}`}
-            aria-label="Add to cart"
-            title="Add to order"
-          >
-            {isInCart ? <FiCheck /> : <FiPlus />}
-          </button>
+          <div className="card-action-container">
+            <AnimatePresence mode="wait">
+              {cartItem ? (
+                <motion.div
+                  key="stepper"
+                  className="card-qty-stepper"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.8, opacity: 0 }}
+                  transition={{ type: 'spring', damping: 20, stiffness: 350 }}
+                >
+                  <button
+                    onClick={handleDecrement}
+                    className="qty-step-btn"
+                    aria-label="Decrease quantity"
+                  >
+                    <FiMinus />
+                  </button>
+                  <span className="qty-count">{cartItem.qty}</span>
+                  <button
+                    onClick={handleIncrement}
+                    className="qty-step-btn"
+                    aria-label="Increase quantity"
+                  >
+                    <FiPlus />
+                  </button>
+                </motion.div>
+              ) : (
+                <motion.button
+                  key="add-btn"
+                  onClick={handleAddToCart}
+                  className="card-quick-add-btn"
+                  aria-label="Add to cart"
+                  title="Add to order"
+                  whileTap={{ scale: 0.88 }}
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.9, opacity: 0 }}
+                >
+                  <FiPlus />
+                </motion.button>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

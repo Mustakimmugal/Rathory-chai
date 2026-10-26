@@ -1,0 +1,30 @@
+{
+  "name": "Rathory Chai Wale",
+  "short_name": "Rathory Chai",
+  "description": "Premium Artisanal Chai Cafe — Har Cup Mein Ek Kahani",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1220",
+  "theme_color": "#4F46E5",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["food", "lifestyle", "shopping"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
+}

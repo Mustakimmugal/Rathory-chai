@@ -135,30 +135,26 @@ export default function Home() {
 
 
         <div className="container hero-text-only-container">
-          {/* LEFT: BRAND TEXT ONLY WITH DYNAMIC ANIMATIONS & RICH COLORS */}
           <div className="hero-content-col hero-text-animated-wrapper">
-            {/* GRAND HEADLINE */}
-            <h1 className="hero-main-title hero-video-title">
+            {/* 1. EYEBROW */}
+            <div className="hero-eyebrow-badge-wrap">
               <span className="hero-eyebrow animated-eyebrow">
                 <span className="eyebrow-sparkle">✨</span> Taste The Royal Heritage
               </span>
-              <br />
+            </div>
+
+            {/* 2. MAIN BRAND TITLE */}
+            <h1 className="hero-main-title hero-video-title">
               <span className="gradient-brand-word glow-text animated-brand-shimmer">
                 Rathory Chai
               </span>
             </h1>
 
-            {/* POETIC SUBTITLE & TAGLINE WITH MULTI-COLOR ACCENTS & ANIMATION */}
+            {/* 3. POETIC HINDI QUOTE */}
             <p className="hero-sub-tagline hero-hindi-quote animated-quote">
               “<span className="quote-word-story">Har Cup Mein Ek Kahani</span>,{' '}
               <span className="quote-word-freshness">Har Ghoont Mein Tazgi</span>.”{' '}
               <span className="quote-cup-emoji">☕</span>
-            </p>
-
-            <p className="hero-desc-lead animated-lead">
-              Experience the aroma of freshly <span className="highlight-spices">hand-crushed spices</span>,{' '}
-              slow-simmered rich tea leaves, and cozy cafe vibes. Freshly brewed in authentic{' '}
-              <span className="highlight-kulhad">earthen kulhad</span>.
             </p>
           </div>
         </div>

@@ -280,7 +280,7 @@
 /* STATS METRIC ROW */
 .admin-stats-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
 }
 
@@ -288,18 +288,52 @@
   background: var(--bg-card);
   border: 1px solid var(--border-glass);
   border-radius: 18px;
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 1.4rem;
   display: flex;
   align-items: center;
   gap: 1.15rem;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Moving shine sweep on hover */
+.admin-stat-badge-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.75s ease;
+  pointer-events: none;
 }
 
 .admin-stat-badge-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px) scale(1.015);
   border-color: var(--border-glass-hover);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 14px 32px -6px rgba(0, 0, 0, 0.12);
+}
+
+.admin-stat-badge-card:hover::after {
+  left: 140%;
+}
+
+.admin-stat-badge-card:active {
+  transform: scale(0.98);
+}
+
+.admin-stat-badge-card:hover .admin-stat-ico {
+  transform: scale(1.15) rotate(6deg);
 }
 
 .admin-stat-ico {
@@ -311,6 +345,7 @@
   justify-content: center;
   font-size: 1.4rem;
   flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
 
 .admin-stat-ico.gold {
@@ -318,9 +353,17 @@
   color: #F59E0B;
 }
 
+.admin-stat-badge-card:hover .admin-stat-ico.gold {
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.35);
+}
+
 .admin-stat-ico.green {
   background: rgba(34, 197, 94, 0.15);
   color: #16A34A;
+}
+
+.admin-stat-badge-card:hover .admin-stat-ico.green {
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.35);
 }
 
 .admin-stat-ico.rose {
@@ -328,9 +371,17 @@
   color: #EF4444;
 }
 
+.admin-stat-badge-card:hover .admin-stat-ico.rose {
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.35);
+}
+
 .admin-stat-ico.blue {
   background: rgba(59, 130, 246, 0.15);
   color: #3B82F6;
+}
+
+.admin-stat-badge-card:hover .admin-stat-ico.blue {
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
 }
 
 .admin-stat-val {
@@ -340,6 +391,42 @@
   color: var(--text-primary);
   line-height: 1.1;
   margin-bottom: 2px;
+}
+
+/* Responsive Grid for Admin Stats Row */
+@media (max-width: 1200px) {
+  .admin-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-stats-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+
+  .admin-stat-badge-card {
+    padding: 0.9rem 1rem;
+    gap: 10px;
+    border-radius: 16px;
+  }
+
+  .admin-stat-ico {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 1.15rem;
+  }
+
+  .admin-stat-val {
+    font-size: 1.25rem;
+  }
+
+  .admin-stat-lbl {
+    font-size: 0.7rem;
+  }
 }
 
 .admin-stat-lbl {

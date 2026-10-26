@@ -321,12 +321,78 @@
   text-transform: capitalize;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
+  .gallery-page {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 65px);
+    padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 16px));
+  }
+
+  .gallery-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .gallery-tab-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-header {
+    padding: 1.5rem 0 1rem;
+  }
+
+  .gallery-header .section-title {
+    font-size: 1.8rem;
+  }
+
+  /* 2-Column Mobile App Gallery Grid (Instagram/Pinterest style) */
+  .gallery-masonry-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .gallery-card {
+    height: 180px;
+    border-radius: 16px;
+  }
+
+  .gallery-card-overlay {
+    padding: 0.75rem;
+  }
+
+  .gallery-img-title {
+    font-size: 0.85rem;
+  }
+
+  .gallery-category-pill {
+    font-size: 0.68rem;
+    padding: 2px 6px;
+  }
+
+  .gallery-action-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
   .lightbox-modal {
-    max-width: 100%;
+    max-width: 96%;
+    border-radius: 18px;
   }
 
   .lightbox-caption {
-    padding: 1.25rem 1.5rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .lightbox-caption h3 {
+    font-size: 1.1rem;
   }
 }
+

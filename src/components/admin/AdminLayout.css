@@ -188,10 +188,15 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 250px;
+  right: 0;
   z-index: 90;
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
 }
 
 .topbar-left-box {
@@ -282,6 +287,7 @@
 
 .modern-admin-outlet {
   padding: 2rem;
+  margin-top: 70px;
   flex: 1;
 }
 
@@ -301,6 +307,16 @@
 
   .modern-admin-main {
     margin-left: 0;
+  }
+
+  .modern-admin-topbar {
+    left: 0;
+    padding: 0 1.25rem;
+  }
+
+  .modern-admin-outlet {
+    padding: 1.25rem 1rem;
+    margin-top: 70px;
   }
 
   .topbar-toggle-btn {

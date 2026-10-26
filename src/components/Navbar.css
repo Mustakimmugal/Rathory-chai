@@ -242,8 +242,19 @@
   margin-top: 2rem;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE & MOBILE APP BAR */
 @media (max-width: 968px) {
+  .navbar-wrapper {
+    padding: calc(env(safe-area-inset-top, 0px) + 10px) 0 6px;
+  }
+
+  .navbar-pill {
+    margin-top: 0;
+    border-radius: 9999px;
+    padding: 0.45rem 1rem;
+    height: 52px;
+  }
+
   .navbar-center-links {
     display: none;
   }
@@ -252,7 +263,35 @@
     display: none;
   }
 
+  .navbar-brand .brand-logo-badge {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+
+  .navbar-brand .brand-title {
+    font-size: 1.1rem;
+  }
+
+  .navbar-brand .brand-subtitle {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar-actions .cart-action-btn,
+  .navbar-actions a[title*="Dashboard"],
+  .navbar-actions a[title*="Sign In"] {
+    display: none;
+  }
+
   .mobile-toggle-btn {
-    display: flex;
+    display: none;
+  }
+
+  .nav-icon-action {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
   }
 }
